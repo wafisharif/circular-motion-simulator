@@ -1,0 +1,171 @@
+/* style.css */
+
+body {
+  margin: 0;
+  background-color: #121212;       /* Darker background */
+  color: #eee;                     /* Light text color */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+h1 {
+  color: #ffffff;
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-shadow: 0 0 5px #3399ff;   /* subtle blue glow */
+}
+
+#mainContainer {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  width: 100%;
+}
+
+#controls {
+  background-color: #1f1f1f;        /* Slightly lighter dark box */
+  border-radius: 12px;
+  padding: 25px 35px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  color: #ccc;
+  flex-shrink: 0;
+  width: 280px;
+}
+
+#controls label {
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 15px;
+  color: #ddd;
+}
+
+#controls input[type="range"] {
+  width: 100%;
+  margin-top: 8px;
+  cursor: pointer;
+  accent-color: #3399ff;           /* Blue accent for sliders */
+}
+
+#vectorToggles label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #bbb;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 10px;
+}
+
+#vectorToggles input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: #3399ff;
+  margin-right: 8px;
+}
+
+#canvasContainer {
+  border: 0px solid #000000;       /* Thick blue border matching accent */
+  border-radius: 12px;
+  box-sizing: border-box;
+  width: 600px;
+  height: 600px;
+  background-color: #121212;
+  box-shadow: 0 0 15px rgba(83, 83, 83, 0.6);
+}
+
+/* Text inside canvas - for your p5 text calls */
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Responsive tweak: stack on narrow screens */
+@media (max-width: 720px) {
+  #mainContainer {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  #controls, #canvasContainer {
+    width: 90vw;
+    max-width: none;
+    height: auto;
+  }
+
+  #canvasContainer {
+    height: 400px;
+  }
+}
+
+
+/* Floating Info Button */
+#infoBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3399ff;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 1001;
+}
+
+#infoBtn:hover {
+  background-color: #2a80d9;
+}
+
+/* Info Panel Overlay */
+#infoPanel {
+  display: none;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  width: 400px;
+  max-height: 80vh;
+  background-color: #1f1f1f;
+  color: #ddd;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* Close button inside panel */
+#closeInfo {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #bbb;
+  cursor: pointer;
+}
+
+#closeInfo:hover {
+  color: #fff;
+}
+
+/* Panel Headings & Lists */
+#infoPanel h2, #infoPanel h3 {
+  margin-top: 1em;
+  color: #fff;
+}
+
+#infoPanel ul {
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
