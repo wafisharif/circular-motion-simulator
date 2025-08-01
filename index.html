@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Circular Motion Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+</head>
+<body>
+  <h1 style="text-align: center;">Circular Motion Simulator</h1>
+
+  <div id="mainContainer">
+    
+    <div id="controls">
+      <label>
+        Radius: <span id="radiusValue">1.00</span> m
+        <br />
+        <input type="range" id="radiusSlider" min="50" max="250" value="100" />
+      </label>
+      <br /><br />
+
+      <label>
+        Angular Velocity (ω): <span id="omegaValue">3.00</span> rad/s
+        <br />
+        <input type="range" id="omegaSlider" min="0.01" max="0.2" step="0.01" value="0.05" />
+      </label>
+      <br /><br />
+
+      <label>
+        Mass: <span id="massValue">1</span> kg
+        <br />
+        <input type="range" id="massSlider" min="0.5" max="5" step="0.5" value="1" />
+      </label>
+
+      <br /><br />
+
+      <div id="vectorToggles">
+        <label><input type="checkbox" id="showVelocity" checked /> Show Velocity (🔵)</label><br />
+        <label><input type="checkbox" id="showAcceleration" checked /> Show Acceleration (🟢)</label><br />
+        <label><input type="checkbox" id="showForce" checked /> Show Net Force (🔴)</label>
+      </div>
+    </div>
+
+    <div id="canvasContainer"></div>
+  </div>
+
+  <script src="sketch.js"></script>
+
+<!-- Floating Info Button -->
+<button id="infoBtn">ℹ️ Explanation</button>
+
+<!-- Info Panel -->
+<div id="infoPanel">
+  <div id="infoContent">
+    <button id="closeInfo">✖</button>
+  <h2>Circular Motion</h2>
+
+  <strong>Radius (r):</strong><br>
+  The radius is the distance from the center of the circular path to the object moving along it. It is measured in meters (m). The larger the radius, the bigger the circle the object moves in.<br><br>
+
+  <strong>Angular Velocity (ω):</strong><br>
+  Angular velocity measures how fast the object rotates around the circle, in radians per second (rad/s). One full rotation equals 2π radians. Higher angular velocity means faster rotation.<br><br>
+
+  <strong>Linear Velocity (v):</strong><br>
+  Linear velocity is the speed of the object along its circular path, measured in meters per second (m/s). It relates to angular velocity by:<br>
+  <em>v = ω × r</em><br><br>
+
+  <strong>Centripetal Acceleration (a<sub>c</sub>):</strong><br>
+  This acceleration points toward the center of the circle, keeping the object moving in a curve instead of a straight line. It’s given by:<br>
+  <em>a<sub>c</sub> = ω² × r</em><br>
+  and measured in meters per second squared (m/s²).<br><br>
+
+  <strong>Centripetal Force (F<sub>c</sub>):</strong><br>
+  The net force required to keep the object moving in a circle, always directed inward. It depends on the object’s mass (m) and centripetal acceleration:<br>
+  <em>F<sub>c</sub> = m × a<sub>c</sub> = m × ω² × r</em><br>
+  and is measured in newtons (N).<br><br>
+
+  <strong>Vectors in Circular Motion:</strong><br>
+  - <span style="color: blue;">Velocity Vector (🔵):</span> Tangential to the path, showing direction and speed of motion.<br>
+  - <span style="color: green;">Acceleration Vector (🟢):</span> Points toward the center, representing centripetal acceleration.<br>
+  - <span style="color: red;">Force Vector (🔴):</span> Also points inward, showing the centripetal force keeping the object on its path.<br><br>
+
+  <strong>Pause & Resume:</strong><br>
+  Use the spacebar to pause and resume the animation, allowing you to carefully observe vector directions and magnitudes.
+</div>
+  </div>
+</div>
+
+
+</body>
+</html>
